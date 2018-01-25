@@ -1,0 +1,25 @@
+{
+    "all_class_images": 3000,
+    "all_class_name": "vegetables",
+    "all_class_sum": 3,
+    "class_detail": [
+        {
+            "class_label": 1,
+            "class_name": "cuke",
+            "class_test_images": 100,
+            "class_trainer_images": 900
+        },
+        {
+            "class_label": 2,
+            "class_name": "lettuce",
+            "class_test_images": 100,
+            "class_trainer_images": 900
+        },
+        {
+            "class_label": 3,
+            "class_name": "lotus_root",
+            "class_test_images": 100,
+            "class_trainer_images": 900
+        }
+    ]
+}
