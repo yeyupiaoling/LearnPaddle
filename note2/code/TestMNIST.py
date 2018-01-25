@@ -131,7 +131,7 @@ class TestMNIST:
 
 
     # *****************获取你要预测的参数********************************
-    def get_TestData(self):
+    def get_TestData(self,path):
         def load_images(file):
             # 对图进行灰度化处理
             im = Image.open(file).convert('L')
@@ -142,7 +142,7 @@ class TestMNIST:
             return im
 
         test_data = []
-        test_data.append((load_images('../images/infer_3.png'),))
+        test_data.append((load_images(path),))
         return test_data
 
     # *****************使用训练好的参数进行预测********************************
@@ -164,6 +164,6 @@ if __name__ == "__main__":
 
     # out = testMNIST.get_out()
     # parameters = testMNIST.get_parameters()
-    # test_data = testMNIST.get_TestData()
+    # test_data = testMNIST.get_TestData('../images/infer_3.png')
     # # 开始预测
     # testMNIST.to_prediction(out=out, parameters=parameters, test_data=test_data)
