@@ -267,12 +267,12 @@ if __name__ == '__main__':
     paddleUtil = PaddleUtil()
     myReader = MyReader(imageSize=imageSize)
     # parameters_path设置为None就使用普通生成参数,
-    trainer = paddleUtil.get_trainer(datadim=datadim, type_size=type_size, parameters_path=None)
-    trainer_reader = myReader.train_reader(train_list="../data/%s/trainer.list" % all_class_name)
-    test_reader = myReader.test_reader(test_list="../data/%s/test.list" % all_class_name)
-
-    paddleUtil.start_trainer(trainer=trainer, num_passes=1000, save_parameters_name=parameters_path,
-                             trainer_reader=trainer_reader, test_reader=test_reader)
+    # trainer = paddleUtil.get_trainer(datadim=datadim, type_size=type_size, parameters_path=None)
+    # trainer_reader = myReader.train_reader(train_list="../data/%s/trainer.list" % all_class_name)
+    # test_reader = myReader.test_reader(test_list="../data/%s/test.list" % all_class_name)
+    #
+    # paddleUtil.start_trainer(trainer=trainer, num_passes=1000, save_parameters_name=parameters_path,
+    #                          trainer_reader=trainer_reader, test_reader=test_reader)
 
     # 添加数据
     test_data = paddleUtil.get_TestData("../images/src_yanzhengma/1pc6.png", imageSize=imageSize)
