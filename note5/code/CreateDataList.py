@@ -57,13 +57,13 @@ class CreateDataList:
                         f.write(name_path + "\t%d" % class_label + "\n")
                 class_sum += 1
                 all_class_images += 1
-            class_label += 1
             # 说明的json文件的class_detail数据
             class_detail_list['class_name'] = class_dir
             class_detail_list['class_label'] = class_label
             class_detail_list['class_test_images'] = test_sum
             class_detail_list['class_trainer_images'] = trainer_sum
             class_detail.append(class_detail_list)
+            class_label += 1
         # 获取类别数量
         all_class_sum = class_dirs.__len__()
         # 说明的json文件信息

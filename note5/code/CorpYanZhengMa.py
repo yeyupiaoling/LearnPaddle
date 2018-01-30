@@ -37,10 +37,10 @@ class YanZhenMaUtil():
         if not os.path.exists(path4):
             os.makedirs(path4)
         # 裁剪图片并保存
-        img.crop(box1).resize((28, 28), Image.ANTIALIAS).save(path1 + '/%s.png' % uuid.uuid1())
-        img.crop(box2).resize((28, 28), Image.ANTIALIAS).save(path2 + '/%s.png' % uuid.uuid1())
-        img.crop(box3).resize((28, 28), Image.ANTIALIAS).save(path3 + '/%s.png' % uuid.uuid1())
-        img.crop(box4).resize((28, 28), Image.ANTIALIAS).save(path4 + '/%s.png' % uuid.uuid1())
+        img.crop(box1).resize((36, 36), Image.ANTIALIAS).save(path1 + '/%s.png' % uuid.uuid1())
+        img.crop(box2).resize((36, 36), Image.ANTIALIAS).save(path2 + '/%s.png' % uuid.uuid1())
+        img.crop(box3).resize((36, 36), Image.ANTIALIAS).save(path3 + '/%s.png' % uuid.uuid1())
+        img.crop(box4).resize((36, 36), Image.ANTIALIAS).save(path4 + '/%s.png' % uuid.uuid1())
 
 
 if __name__ == '__main__':

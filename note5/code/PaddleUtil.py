@@ -32,7 +32,7 @@ class PaddleUtil:
                                                            pool_size=2,
                                                            pool_stride=2,
                                                            act=paddle.activation.Relu())
-        # 以softmax为激活函数的全连接输出层，输出层的大小必须为数字的个数10
+        # 以softmax为激活函数的全连接输出层
         out = paddle.layer.fc(input=conv_pool_2,
                               size=type_size,
                               act=paddle.activation.Softmax())
@@ -49,10 +49,11 @@ class PaddleUtil:
                 conv_num_filter=[num_filter] * groups,
                 conv_filter_size=3,
                 conv_act=paddle.activation.Relu(),
-                conv_with_batchnorm=True,
+                conv_with_batchnorm=False,
                 conv_batchnorm_drop_rate=dropouts,
                 pool_type=paddle.pooling.Max())
 
+        # 最后一个参数是图像的通道数
         conv1 = conv_block(input, 64, 2, [0.3, 0], 1)
         conv2 = conv_block(conv1, 128, 2, [0.4, 0])
         conv3 = conv_block(conv2, 256, 3, [0.4, 0.4, 0])
@@ -134,14 +135,14 @@ class PaddleUtil:
         optimizer = paddle.optimizer.Momentum(
             momentum=0.9,
             regularization=paddle.optimizer.L2Regularization(rate=0.0005 * 128),
-            learning_rate=0.001 / 128,
+            learning_rate=0.0001 / 128,
             learning_rate_decay_a=0.1,
             learning_rate_decay_b=128000 * 35,
             learning_rate_schedule="discexp", )
         # ********************如果使用LeNet-5网络模型就用这个优化方法******************
-        # optimizer = paddle.optimizer.Momentum(learning_rate=0.1 / 128.0,
+        # optimizer = paddle.optimizer.Momentum(learning_rate=0.00001 / 128.0,
         #                                       momentum=0.9,
-        #                                       regularization=paddle.optimizer.L2Regularization(rate=0.0005 * 128))
+        #                                       regularization=paddle.optimizer.L2Regularization(rate=0.005 * 128))
 
         '''
         创建训练器
@@ -172,8 +173,8 @@ class PaddleUtil:
         def event_handler(event):
             if isinstance(event, paddle.event.EndIteration):
                 if event.batch_id % 100 == 0:
-                    print "\nPass %d, Batch %d, Cost %f, Error %s" % (
-                        event.pass_id, event.batch_id, event.cost, event.metrics['classification_error_evaluator'])
+                    print "\nPass %d, Batch %d, Cost %f, %s" % (
+                        event.pass_id, event.batch_id, event.cost, event.metrics)
                 else:
                     sys.stdout.write('.')
                     sys.stdout.flush()
@@ -188,8 +189,7 @@ class PaddleUtil:
                 result = trainer.test(reader=paddle.batch(reader=test_reader,
                                                           batch_size=128),
                                       feeding=feeding)
-                print "\nTest with Pass %d, Classification_Error %s" % (
-                    event.pass_id, result.metrics['classification_error_evaluator'])
+                print "\nTest with Pass %d, %s" % (event.pass_id, result.metrics)
 
         '''
         开始训练
@@ -207,10 +207,11 @@ class PaddleUtil:
     def get_TestData(self, path, imageSize):
         def load_images(img):
             # 对图进行灰度化处理
-            im = img.convert('L')
+            im = img
             # 缩小到跟训练数据一样大小
             im = im.resize((imageSize, imageSize), Image.ANTIALIAS)
             im = np.array(im).astype(np.float32).flatten()
+            print im.shape
             im = im / 255.0
             return im
 
@@ -256,7 +257,7 @@ if __name__ == '__main__':
     # 类别总数
     type_size = 33
     # 图片大小
-    imageSize = 28
+    imageSize = 32
     # 总的分类名称
     all_class_name = 'dst_yanzhengma'
     # 保存的model路径
@@ -266,15 +267,15 @@ if __name__ == '__main__':
     paddleUtil = PaddleUtil()
     myReader = MyReader(imageSize=imageSize)
     # parameters_path设置为None就使用普通生成参数,
-    # trainer = paddleUtil.get_trainer(datadim=datadim, type_size=type_size, parameters_path=None)
-    # trainer_reader = myReader.train_reader(train_list="../data/%s/trainer.list" % all_class_name)
-    # test_reader = myReader.test_reader(test_list="../data/%s/test.list" % all_class_name)
-    #
-    # paddleUtil.start_trainer(trainer=trainer, num_passes=1000, save_parameters_name=parameters_path,
-    #                          trainer_reader=trainer_reader, test_reader=test_reader)
+    trainer = paddleUtil.get_trainer(datadim=datadim, type_size=type_size, parameters_path=None)
+    trainer_reader = myReader.train_reader(train_list="../data/%s/trainer.list" % all_class_name)
+    test_reader = myReader.test_reader(test_list="../data/%s/test.list" % all_class_name)
+
+    paddleUtil.start_trainer(trainer=trainer, num_passes=1000, save_parameters_name=parameters_path,
+                             trainer_reader=trainer_reader, test_reader=test_reader)
 
     # 添加数据
-    test_data = paddleUtil.get_TestData("../images/src_yanzhengma/0alc.png", imageSize=imageSize)
+    test_data = paddleUtil.get_TestData("../images/src_yanzhengma/1pc6.png", imageSize=imageSize)
     out = paddleUtil.get_out(datadim=datadim, type_size=type_size)
     parameters = paddleUtil.get_parameters(parameters_path=parameters_path)
     result = paddleUtil.to_prediction(test_data=test_data,

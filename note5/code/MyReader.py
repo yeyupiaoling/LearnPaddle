@@ -14,7 +14,7 @@ class MyReader:
         # 我这里使用的是本地的image,如果你的paddlepaddle是最新的,也可以使用padd.v2.image
         # 因为是灰度图,所以is_color=False
         img = image.load_image(img, is_color=False)
-        img = image.simple_transform(img, 32, self.imageSize, True, is_color=False)
+        img = image.simple_transform(img, 38, self.imageSize, True, is_color=False)
         return img.flatten().astype('float32'), label
 
     def test_mapper(self, sample):
@@ -22,7 +22,7 @@ class MyReader:
         # 我这里使用的是本地的image,如果你的paddlepaddle是最新的,也可以使用padd.v2.image
         # 因为是灰度图,所以is_color=False
         img = image.load_image(img, is_color=False)
-        img = image.simple_transform(img, 32, self.imageSize, False, is_color=False)
+        img = image.simple_transform(img, 38, self.imageSize, False, is_color=False)
         return img.flatten().astype('float32'), label
 
     def train_reader(self, train_list, buffered_size=1024):
