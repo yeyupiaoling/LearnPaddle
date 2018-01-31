@@ -6,6 +6,7 @@ import paddle.v2 as paddle
 from MyReader import MyReader
 from PIL import Image
 import json
+import image
 
 
 class PaddleUtil:
@@ -139,6 +140,7 @@ class PaddleUtil:
             learning_rate_decay_a=0.1,
             learning_rate_decay_b=128000 * 35,
             learning_rate_schedule="discexp", )
+
         # ********************如果使用LeNet-5网络模型就用这个优化方法******************
         # optimizer = paddle.optimizer.Momentum(learning_rate=0.00001 / 128.0,
         #                                       momentum=0.9,
@@ -205,29 +207,30 @@ class PaddleUtil:
 
     # *****************获取你要预测的参数********************************
     def get_TestData(self, path, imageSize):
-        def load_images(img):
-            # 对图进行灰度化处理
-            im = img
-            # 缩小到跟训练数据一样大小
-            im = im.resize((imageSize, imageSize), Image.ANTIALIAS)
-            im = np.array(im).astype(np.float32).flatten()
-            print im.shape
-            im = im / 255.0
-            return im
-
         test_data = []
         img = Image.open(path)
-        # 切割图片
+        # 切割图片并保存
         box1 = (5, 0, 17, 27)
         box2 = (17, 0, 29, 27)
         box3 = (29, 0, 41, 27)
         box4 = (41, 0, 53, 27)
-        test_data.append((load_images(img.crop(box1)),))
-        test_data.append((load_images(img.crop(box2)),))
-        test_data.append((load_images(img.crop(box3)),))
-        test_data.append((load_images(img.crop(box4)),))
+        temp = '../images/temp'
+        img.crop(box1).resize((32, 32), Image.ANTIALIAS).save(temp + '/1.png')
+        img.crop(box2).resize((32, 32), Image.ANTIALIAS).save(temp + '/2.png')
+        img.crop(box3).resize((32, 32), Image.ANTIALIAS).save(temp + '/3.png')
+        img.crop(box4).resize((32, 32), Image.ANTIALIAS).save(temp + '/4.png')
+        # 把图像加载到预测数据中
+        test_data.append((image.load_and_transform(temp + '/1.png', 38, imageSize, False, is_color=False)
+                          .flatten().astype('float32'),))
+        test_data.append((image.load_and_transform(temp + '/2.png', 38, imageSize, False, is_color=False)
+                          .flatten().astype('float32'),))
+        test_data.append((image.load_and_transform(temp + '/3.png', 38, imageSize, False, is_color=False)
+                          .flatten().astype('float32'),))
+        test_data.append((image.load_and_transform(temp + '/4.png', 38, imageSize, False, is_color=False)
+                          .flatten().astype('float32'),))
         return test_data
 
+    # *****************把预测的label对应的真实字符找到********************************
     def lab_to_result(self, lab, json_str):
         myjson = json.loads(json_str)
         class_details = myjson['class_detail']
@@ -265,19 +268,22 @@ if __name__ == '__main__':
     # 数据的大小
     datadim = imageSize * imageSize
     paddleUtil = PaddleUtil()
+
+    # *******************************开始训练**************************************
     myReader = MyReader(imageSize=imageSize)
     # parameters_path设置为None就使用普通生成参数,
-    # trainer = paddleUtil.get_trainer(datadim=datadim, type_size=type_size, parameters_path=None)
-    # trainer_reader = myReader.train_reader(train_list="../data/%s/trainer.list" % all_class_name)
-    # test_reader = myReader.test_reader(test_list="../data/%s/test.list" % all_class_name)
-    #
-    # paddleUtil.start_trainer(trainer=trainer, num_passes=1000, save_parameters_name=parameters_path,
-    #                          trainer_reader=trainer_reader, test_reader=test_reader)
+    trainer = paddleUtil.get_trainer(datadim=datadim, type_size=type_size, parameters_path=None)
+    trainer_reader = myReader.train_reader(train_list="../data/%s/trainer.list" % all_class_name)
+    test_reader = myReader.test_reader(test_list="../data/%s/test.list" % all_class_name)
 
-    # 添加数据
-    test_data = paddleUtil.get_TestData("../images/src_yanzhengma/1pc6.png", imageSize=imageSize)
+    paddleUtil.start_trainer(trainer=trainer, num_passes=1000, save_parameters_name=parameters_path,
+                             trainer_reader=trainer_reader, test_reader=test_reader)
+
+    # *******************************开始预测**************************************
     out = paddleUtil.get_out(datadim=datadim, type_size=type_size)
     parameters = paddleUtil.get_parameters(parameters_path=parameters_path)
+    # 添加数据
+    test_data = paddleUtil.get_TestData("../images/src_yanzhengma/0a13.png", imageSize=imageSize)
     result = paddleUtil.to_prediction(test_data=test_data,
                                       parameters=parameters,
                                       out=out,

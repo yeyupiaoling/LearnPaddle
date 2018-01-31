@@ -1,145 +1,145 @@
 {
-    "all_class_images": 5104,
+    "all_class_images": 5784,
     "all_class_name": "dst_yanzhengma",
     "all_class_sum": 33,
     "class_detail": [
         {
             "class_label": 0,
             "class_name": "0",
-            "class_test_images": 23,
-            "class_trainer_images": 199
+            "class_test_images": 24,
+            "class_trainer_images": 216
         },
         {
             "class_label": 1,
             "class_name": "1",
-            "class_test_images": 20,
-            "class_trainer_images": 173
+            "class_test_images": 23,
+            "class_trainer_images": 201
         },
         {
             "class_label": 2,
             "class_name": "2",
-            "class_test_images": 18,
-            "class_trainer_images": 157
+            "class_test_images": 21,
+            "class_trainer_images": 188
         },
         {
             "class_label": 3,
             "class_name": "3",
-            "class_test_images": 18,
-            "class_trainer_images": 161
+            "class_test_images": 22,
+            "class_trainer_images": 195
         },
         {
             "class_label": 4,
             "class_name": "4",
-            "class_test_images": 22,
-            "class_trainer_images": 191
+            "class_test_images": 25,
+            "class_trainer_images": 223
         },
         {
             "class_label": 5,
             "class_name": "5",
-            "class_test_images": 21,
-            "class_trainer_images": 182
+            "class_test_images": 24,
+            "class_trainer_images": 214
         },
         {
             "class_label": 6,
             "class_name": "6",
-            "class_test_images": 19,
-            "class_trainer_images": 166
+            "class_test_images": 21,
+            "class_trainer_images": 183
         },
         {
             "class_label": 7,
             "class_name": "7",
-            "class_test_images": 21,
-            "class_trainer_images": 182
+            "class_test_images": 23,
+            "class_trainer_images": 207
         },
         {
             "class_label": 8,
             "class_name": "8",
-            "class_test_images": 21,
-            "class_trainer_images": 187
+            "class_test_images": 25,
+            "class_trainer_images": 218
         },
         {
             "class_label": 9,
             "class_name": "a",
-            "class_test_images": 19,
-            "class_trainer_images": 163
+            "class_test_images": 20,
+            "class_trainer_images": 180
         },
         {
             "class_label": 10,
             "class_name": "b",
-            "class_test_images": 13,
-            "class_trainer_images": 112
+            "class_test_images": 14,
+            "class_trainer_images": 119
         },
         {
             "class_label": 11,
             "class_name": "c",
-            "class_test_images": 12,
-            "class_trainer_images": 105
+            "class_test_images": 14,
+            "class_trainer_images": 119
         },
         {
             "class_label": 12,
             "class_name": "d",
-            "class_test_images": 14,
-            "class_trainer_images": 121
+            "class_test_images": 15,
+            "class_trainer_images": 135
         },
         {
             "class_label": 13,
             "class_name": "e",
-            "class_test_images": 15,
-            "class_trainer_images": 129
+            "class_test_images": 16,
+            "class_trainer_images": 144
         },
         {
             "class_label": 14,
             "class_name": "f",
-            "class_test_images": 17,
-            "class_trainer_images": 146
+            "class_test_images": 19,
+            "class_trainer_images": 168
         },
         {
             "class_label": 15,
             "class_name": "g",
-            "class_test_images": 12,
-            "class_trainer_images": 99
+            "class_test_images": 13,
+            "class_trainer_images": 116
         },
         {
             "class_label": 16,
             "class_name": "h",
-            "class_test_images": 13,
-            "class_trainer_images": 115
+            "class_test_images": 15,
+            "class_trainer_images": 128
         },
         {
             "class_label": 17,
             "class_name": "i",
-            "class_test_images": 17,
-            "class_trainer_images": 148
+            "class_test_images": 18,
+            "class_trainer_images": 162
         },
         {
             "class_label": 18,
             "class_name": "j",
-            "class_test_images": 14,
-            "class_trainer_images": 118
+            "class_test_images": 15,
+            "class_trainer_images": 135
         },
         {
             "class_label": 19,
             "class_name": "k",
-            "class_test_images": 12,
-            "class_trainer_images": 106
+            "class_test_images": 14,
+            "class_trainer_images": 120
         },
         {
             "class_label": 20,
             "class_name": "l",
-            "class_test_images": 18,
-            "class_trainer_images": 156
+            "class_test_images": 20,
+            "class_trainer_images": 173
         },
         {
             "class_label": 21,
             "class_name": "m",
-            "class_test_images": 14,
-            "class_trainer_images": 120
+            "class_test_images": 15,
+            "class_trainer_images": 128
         },
         {
             "class_label": 22,
             "class_name": "n",
-            "class_test_images": 14,
-            "class_trainer_images": 120
+            "class_test_images": 16,
+            "class_trainer_images": 142
         },
         {
             "class_label": 23,
@@ -150,56 +150,56 @@
         {
             "class_label": 24,
             "class_name": "q",
-            "class_test_images": 14,
-            "class_trainer_images": 120
-        },
-        {
-            "class_label": 25,
-            "class_name": "r",
             "class_test_images": 16,
             "class_trainer_images": 142
         },
         {
+            "class_label": 25,
+            "class_name": "r",
+            "class_test_images": 18,
+            "class_trainer_images": 161
+        },
+        {
             "class_label": 26,
             "class_name": "s",
-            "class_test_images": 14,
-            "class_trainer_images": 124
+            "class_test_images": 16,
+            "class_trainer_images": 140
         },
         {
             "class_label": 27,
             "class_name": "t",
-            "class_test_images": 19,
-            "class_trainer_images": 165
+            "class_test_images": 21,
+            "class_trainer_images": 183
         },
         {
             "class_label": 28,
             "class_name": "u",
-            "class_test_images": 14,
-            "class_trainer_images": 124
+            "class_test_images": 16,
+            "class_trainer_images": 144
         },
         {
             "class_label": 29,
             "class_name": "v",
-            "class_test_images": 14,
-            "class_trainer_images": 117
+            "class_test_images": 15,
+            "class_trainer_images": 133
         },
         {
             "class_label": 30,
             "class_name": "w",
-            "class_test_images": 12,
-            "class_trainer_images": 106
+            "class_test_images": 14,
+            "class_trainer_images": 122
         },
         {
             "class_label": 31,
             "class_name": "x",
-            "class_test_images": 12,
-            "class_trainer_images": 102
+            "class_test_images": 14,
+            "class_trainer_images": 123
         },
         {
             "class_label": 32,
             "class_name": "y",
-            "class_test_images": 12,
-            "class_trainer_images": 105
+            "class_test_images": 14,
+            "class_trainer_images": 117
         }
     ]
 }

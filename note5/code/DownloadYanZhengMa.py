@@ -33,7 +33,7 @@ if __name__ == '__main__':
     # 下载验证码的保存路径
     save_path = '../images/download_yanzhengma'
     # 下载验证码的数量
-    download_max = 1000
+    download_max = 500
     # 下载验证码的网址
     url = 'http://jw.xhsysu.cn/CheckCode.aspx?'
     downloadYanZhenMa = DownloadYanZhengMa(save_path=save_path, download_max=download_max,url=url)
