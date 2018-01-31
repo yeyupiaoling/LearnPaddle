@@ -162,8 +162,8 @@ if __name__ == "__main__":
     # 开始训练
     testMNIST.start_trainer()
 
-    # out = testMNIST.get_out()
-    # parameters = testMNIST.get_parameters()
-    # test_data = testMNIST.get_TestData('../images/infer_3.png')
-    # # 开始预测
-    # testMNIST.to_prediction(out=out, parameters=parameters, test_data=test_data)
+    # 开始预测
+    out = testMNIST.get_out()
+    parameters = testMNIST.get_parameters()
+    test_data = testMNIST.get_TestData('../images/infer_3.png')
+    testMNIST.to_prediction(out=out, parameters=parameters, test_data=test_data)

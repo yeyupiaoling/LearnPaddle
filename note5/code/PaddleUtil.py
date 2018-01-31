@@ -276,7 +276,7 @@ if __name__ == '__main__':
     trainer_reader = myReader.train_reader(train_list="../data/%s/trainer.list" % all_class_name)
     test_reader = myReader.test_reader(test_list="../data/%s/test.list" % all_class_name)
 
-    paddleUtil.start_trainer(trainer=trainer, num_passes=1000, save_parameters_name=parameters_path,
+    paddleUtil.start_trainer(trainer=trainer, num_passes=500, save_parameters_name=parameters_path,
                              trainer_reader=trainer_reader, test_reader=test_reader)
 
     # *******************************开始预测**************************************
