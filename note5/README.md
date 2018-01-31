@@ -14,4 +14,4 @@
 6. `image.py`图像处理的,其就是paddle.v2.image的程序
 
 ## 笔记
-程序存在bug,还没有完成
+笔记文章地址:http://blog.csdn.net/qq_33200967/article/details/79095295
