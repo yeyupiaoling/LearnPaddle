@@ -35,6 +35,6 @@ if __name__ == '__main__':
     # 下载验证码的数量
     download_max = 500
     # 下载验证码的网址
-    url = 'http://jw.xhsysu.cn/CheckCode.aspx?'
+    url = 'http://jwsys.ctbu.edu.cn/CheckCode.aspx?'
     downloadYanZhenMa = DownloadYanZhengMa(save_path=save_path, download_max=download_max,url=url)
     downloadYanZhenMa.downloadImages()
