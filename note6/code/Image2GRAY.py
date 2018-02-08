@@ -11,11 +11,11 @@ def Image2GRAY(path):
         if i % 10 == 0:
             # 使图像灰度化并保存
             im = Image.open(path + '/' + img).convert('L')
-            im.save('data/test_data/' + img)
+            im.save('../data/test_data/' + img)
         else:
             # 使图像灰度化并保存
             im = Image.open(path + '/' + img).convert('L')
-            im.save('data/train_data/' + img)
+            im.save('../data/train_data/' + img)
         i = i + 1
 
 if __name__ == '__main__':
