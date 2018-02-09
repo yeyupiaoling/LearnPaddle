@@ -29,4 +29,4 @@
 10. `DownloadImages.py`是下载车牌的一个程序
 
 ## 笔记
-笔记文章地址:http://blog.csdn.net/qq_33200967/article/details/79233565
+笔记文章地址:http://blog.csdn.net/qq_33200967/article/details/79095335
