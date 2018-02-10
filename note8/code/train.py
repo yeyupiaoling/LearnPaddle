@@ -35,7 +35,7 @@ def train(train_file_list_path, test_file_list_path, label_dict_path,model_save_
     optimizer = paddle.optimizer.Momentum(momentum=conf.momentum)
     # 定义网络拓扑
     model = Model(dict_size, conf.image_shape, is_infer=False)
-    # Create all the trainable parameters.
+    # 创建训练参数
     params = paddle.parameters.create(model.cost)
 
     trainer = paddle.trainer.SGD(cost=model.cost,
