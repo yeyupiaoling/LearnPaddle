@@ -138,6 +138,6 @@ if __name__ == "__main__":
         eval_file_list='../images/infer.txt',
         save_path='../images/infer.res',
         data_args=data_args,
-        batch_size=4,
+        batch_size=1,
         model_path='../models/params_pass.tar.gz',
         threshold=0.3)
