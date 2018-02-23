@@ -133,7 +133,7 @@ if __name__ == "__main__":
         resize_h=cfg.IMG_HEIGHT,
         resize_w=cfg.IMG_WIDTH,
         mean_value=[104, 117, 124])
-    # 开始预测
+    # 开始预测,batch_size只能设置为1，否则会数据丢失
     infer(
         eval_file_list='../images/infer.txt',
         save_path='../images/infer.res',
