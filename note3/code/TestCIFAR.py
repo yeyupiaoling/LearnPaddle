@@ -5,6 +5,7 @@ from PIL import Image
 import numpy as np
 import os
 
+step = 0
 
 class TestCIFAR:
     # ***********************初始化操作***************************************
@@ -177,7 +178,7 @@ class TestCIFAR:
         # 指定每条数据和padd.layer.data的对应关系
         feeding = {"image": 0, "label": 1}
 
-        # 定义训练事件
+        # 定义训练事件，输出日志
         def event_handler(event):
             if isinstance(event, paddle.event.EndIteration):
                 if event.batch_id % 100 == 0:
@@ -201,6 +202,32 @@ class TestCIFAR:
                                                           batch_size=128),
                                       feeding=feeding)
                 print "\nTest with Pass %d, %s" % (event.pass_id, result.metrics)
+
+        train_title = "Train cost"
+        test_title = "Test cost"
+        cost_ploter = Ploter(train_title, test_title)
+
+        # 定义训练事件,画出折线图
+        def event_handler_plot(event):
+            global step
+            if isinstance(event, paddle.event.EndIteration):
+                if step % 1 == 0:
+                    cost_ploter.append(train_title, step, event.cost)
+                    cost_ploter.plot()
+                step += 1
+            if isinstance(event, paddle.event.EndPass):
+                # 保存训练好的参数
+                model_path = '../model'
+                if not os.path.exists(model_path):
+                    os.makedirs(model_path)
+                with open(model_path + '/model_%d.tar' % event.pass_id, 'w') as f:
+                    trainer.save_parameter_to_tar(f)
+
+                result = trainer.test(
+                    reader=paddle.batch(
+                        paddle.dataset.cifar.test10(), batch_size=128),
+                    feeding=feeding)
+                cost_ploter.append(test_title, step, result.cost)
 
         # 获取训练器
         trainer = self.get_trainer()
