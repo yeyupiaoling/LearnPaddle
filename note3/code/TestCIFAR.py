@@ -1,4 +1,5 @@
 # coding:utf-8
+from paddle.v2.plot import Ploter
 import sys
 import paddle.v2 as paddle
 from PIL import Image
@@ -207,7 +208,7 @@ class TestCIFAR:
         test_title = "Test cost"
         cost_ploter = Ploter(train_title, test_title)
 
-        # 定义训练事件,画出折线图
+        # 定义训练事件,画出折线图,该事件的图可以在notebook上显示，命令行不会正常输出
         def event_handler_plot(event):
             global step
             if isinstance(event, paddle.event.EndIteration):
