@@ -1,0 +1,6 @@
+infer/000001.jpg
+infer/000002.jpg
+infer/000003.jpg
+infer/000004.jpg
+infer/000005.jpg
+infer/000006.jpg

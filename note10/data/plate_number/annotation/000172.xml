@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>000172.jpg</filename>
+	<path>/home/yeyupiaoling/data/plate_number/images/000172.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>400</width>
+		<height>283</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>plate_number</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>106</xmin>
+			<ymin>169</ymin>
+			<xmax>190</xmax>
+			<ymax>197</ymax>
+		</bndbox>
+	</object>
+</annotation>
