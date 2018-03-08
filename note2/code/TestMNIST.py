@@ -105,7 +105,7 @@ class TestMNIST:
                     os.makedirs(model_path)
                 with open(model_path + "/model.tar", 'w') as f:
                     trainer.save_parameter_to_tar(f=f)
-
+                # 使用测试进行测试
                 result = trainer.test(reader=paddle.batch(paddle.dataset.mnist.test(), batch_size=128))
                 print "\nTest with Pass %d, Cost %f, %s\n" % (event.pass_id, result.cost, result.metrics)
                 lists.append((event.pass_id, result.cost, result.metrics['classification_error_evaluator']))
