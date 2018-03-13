@@ -32,7 +32,7 @@ def infer(image_file, use_cuda, model_path):
 
         results = np.argsort(-results[0])
         # 打印预测结果
-        print "The images/airplane1.png infer results label is: ", results[0][0]
+        print "The images/horse4.png infer results label is: ", results[0][0]
 
 
 if __name__ == '__main__':
