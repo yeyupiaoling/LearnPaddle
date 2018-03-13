@@ -13,5 +13,6 @@
 8. [《我的PaddlePaddle学习之路》笔记八——场景文字识别](http://blog.csdn.net/qq_33200967/article/details/79127138)
 9. [《我的PaddlePaddle学习之路》笔记九——使用VOC数据集的实现目标检测](http://blog.csdn.net/qq_33200967/article/details/79126780)
 10. [《我的PaddlePaddle学习之路》笔记十——自定义图像数据集实现目标检测](http://blog.csdn.net/qq_33200967/article/details/79126830)
+11. [《我的PaddlePaddle学习之路》笔记十一——新版本Fluid的使用](http://blog.csdn.net/qq_33200967/article/details/79126897)
 
 ### 该项目因为使用了大量的数据集，导致整项目非常大，clone的时候要有点耐心。
