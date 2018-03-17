@@ -283,6 +283,6 @@ if __name__ == '__main__':
     # 开始预测
     out = testCIFAR.get_out(3 * 32 * 32)
     parameters = testCIFAR.get_parameters("../model/model.tar")
-    image_path = "../images/0/airplane1.png"
+    image_path = "../images/airplane1.png"
     result,probability = testCIFAR.to_prediction(image_path=image_path, out=out, parameters=parameters)
     print '预测结果为:%d,可信度为:%f' % (result,probability)
