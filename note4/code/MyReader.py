@@ -1,5 +1,4 @@
 from multiprocessing import cpu_count
-
 import paddle.v2 as paddle
 
 class MyReader:
