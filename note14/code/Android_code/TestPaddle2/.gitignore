@@ -1,0 +1,14 @@
+*.iml
+.gradle
+.idea
+local.properties
+.idea/workspace.xml
+.idea/libraries
+.DS_Store
+build
+captures
+.externalNativeBuild
+app/paddle-android/lib
+app/paddle-android/paddle
+app/paddle-android/third_party
+app/src/main/assets/model/include/mobile_net.paddle

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.yeyupiaoling.testpaddle.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/btn_ll"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <Button
+            android:text="相册"
+            android:id="@+id/use_photo"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_above="@id/btn_ll"
+        android:id="@+id/use_time"
+        android:gravity="center_vertical"
+        android:text="预测时间："
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <TextView
+        android:layout_above="@id/use_time"
+        android:id="@+id/infer_result"
+        android:gravity="center_vertical"
+        android:text="预测结果："
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <ImageView
+        android:id="@+id/infer_image"
+        android:layout_above="@id/infer_result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</RelativeLayout>
