@@ -22,3 +22,8 @@
 
 ## 笔记
 笔记文章地址:http://blog.csdn.net/qq_33200967/article/details/79233565
+
+
+## 测试环境
+1. Python 2.7
+2. PaddlePaddle 0.10.0 (GPU版本)

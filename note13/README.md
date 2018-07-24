@@ -11,3 +11,11 @@
 3. `infer.py`是测试预测的程序
 4. `TestServer.py`是这个项目的主要程序，web的接口
 5. `train.py`是训练模型的程序
+
+## 笔记
+笔记文章地址:http://blog.csdn.net/qq_33200967/article/details/79571511
+
+
+## 测试环境
+1. Python 2.7
+2. PaddlePaddle 0.11.0
