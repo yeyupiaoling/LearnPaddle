@@ -17,7 +17,7 @@ def to_prediction(image_paths, parameters, out, imageSize):
     # 获得要预测的图片
     test_data = []
     for image_path in image_paths:
-        test_data.append((paddle.image.load_and_transform(image_path, 256, imageSize, False)
+        test_data.append((paddle.image.load_and_transform(image_path, 70, imageSize, False)
                           .flatten().astype('float32'),))
 
     # 获得预测结果
@@ -38,7 +38,7 @@ if __name__ == '__main__':
     # 类别总数
     type_size = 3
     # 图片大小
-    imageSize = 32
+    imageSize = 64
     # 保存的model路径
     parameters_path = "../model/model.tar"
     # 数据的大小

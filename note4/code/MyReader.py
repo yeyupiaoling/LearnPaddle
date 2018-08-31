@@ -11,7 +11,7 @@ class MyReader:
         '''
         img, label = sample
         img = paddle.image.load_image(img)
-        img = paddle.image.simple_transform(img, 256, self.imageSize, True)
+        img = paddle.image.simple_transform(img, 70, self.imageSize, True)
         return img.flatten().astype('float32'), label
 
     def test_mapper(self,sample):
@@ -20,7 +20,7 @@ class MyReader:
         '''
         img, label = sample
         img = paddle.image.load_image(img)
-        img = paddle.image.simple_transform(img, 256, self.imageSize, False)
+        img = paddle.image.simple_transform(img, 70, self.imageSize, False)
         return img.flatten().astype('float32'), label
 
     def train_reader(self,train_list, buffered_size=1024):
