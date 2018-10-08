@@ -35,7 +35,7 @@ class DownloadImages:
             print '正在下载第' + str(self.download_sum + 1) + '张图片，图片地址:' + str(img_url)
             try:
                 pic = requests.get(img_url, timeout=50)
-                pic_name = self.save_path + '/' + str(uuid.uuid1()) + '.jpg'
+                pic_name = self.save_path + '/' + str(uuid.uuid1()) + '.' + str(img_url).split('.')[-1]
                 with open(pic_name, 'wb') as f:
                     f.write(pic.content)
                 self.download_sum += 1
