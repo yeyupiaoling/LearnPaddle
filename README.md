@@ -18,4 +18,6 @@
 13. [《我的PaddlePaddle学习之路》笔记十三——把PaddlePaddle部署到网站服务器上](http://blog.csdn.net/qq_33200967/article/details/79571511)
 14. [《我的PaddlePaddle学习之路》笔记十四——把PaddlePaddle迁移到Android设备上](http://blog.csdn.net/qq_33200967/article/details/79127017)
 
-### 该项目因为使用了大量的数据集，导致整项目非常大，clone的时候要有点耐心。
+# 补充
+ - 该项目因为使用了大量的数据集，导致整项目非常大，clone的时候要有点耐心。
+ - 来都来了，觉得不错的话，给个star吧。
